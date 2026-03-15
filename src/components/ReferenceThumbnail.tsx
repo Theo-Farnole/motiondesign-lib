@@ -6,22 +6,17 @@ type ReferenceThumbnailProps = {
   reference: MDReference;
 };
 
-const formatTimecode = (totalSeconds: number): string => {
-  if (!Number.isFinite(totalSeconds) || totalSeconds < 0) {
-    return "";
+const getTagColor = (tag: string): { bg: string; text: string; border: string } => {
+  let hash = 0;
+  for (let i = 0; i < tag.length; i++) {
+    hash = tag.charCodeAt(i) + ((hash << 5) - hash);
   }
-
-  const hours = Math.floor(totalSeconds / 3600);
-  const minutes = Math.floor((totalSeconds % 3600) / 60);
-  const seconds = Math.floor(totalSeconds % 60);
-
-  const pad = (value: number) => value.toString().padStart(2, "0");
-
-  if (hours > 0) {
-    return `${hours}:${pad(minutes)}:${pad(seconds)}`;
-  }
-
-  return `${minutes}:${pad(seconds)}`;
+  const hue = Math.abs(hash % 360);
+  return {
+    bg: `hsl(${hue}, 45%, 92%)`,
+    text: `hsl(${hue}, 50%, 28%)`,
+    border: `hsl(${hue}, 35%, 85%)`,
+  };
 };
 
 const getYoutubeThumbnailUrl = (url: string): string | null => {
@@ -65,16 +60,20 @@ export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
       <div className="reference-thumbnail__body">
         <div className="reference-thumbnail__meta">
           <span className="reference-thumbnail__author">{reference.author}</span>
-          <span className="reference-thumbnail__timecode">
-            {formatTimecode(reference.timecode)}
-          </span>
         </div>
         <div className="reference-thumbnail__tags">
-          {reference.tags.map((tag) => (
-            <span key={tag} className="reference-thumbnail__tag">
-              {tag}
-            </span>
-          ))}
+          {reference.tags.map((tag) => {
+            const { bg, text, border } = getTagColor(tag);
+            return (
+              <span
+                key={tag}
+                className="reference-thumbnail__tag"
+                style={{ backgroundColor: bg, color: text, borderColor: border }}
+              >
+                {tag}
+              </span>
+            );
+          })}
         </div>
       </div>
     </article>
