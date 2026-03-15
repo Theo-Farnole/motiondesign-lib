@@ -4,6 +4,7 @@ import "./Footer.scss";
 export const Footer: React.FC = () => {
   return (
     <footer className="app-footer">
+      <p className="app-footer__line app-footer__brand">Motiq</p>
       <p className="app-footer__line">
         Vibe codé par{" "}
         <a href="https://gweron.fr" target="_blank" rel="noreferrer">

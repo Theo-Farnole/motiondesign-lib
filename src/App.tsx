@@ -19,7 +19,7 @@ export const App: React.FC = () => {
         </div>
 
         <p className="home-hero__description">
-          pour le motion design, classées par auteur et par thème 👌
+          pour vous aider à designer vos motion designs 👌
         </p>
       </header>
 
