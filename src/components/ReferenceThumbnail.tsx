@@ -6,17 +6,33 @@ type ReferenceThumbnailProps = {
   reference: MDReference;
 };
 
+const formatTimecode = (totalSeconds: number): string => {
+  if (!Number.isFinite(totalSeconds) || totalSeconds < 0) {
+    return "";
+  }
+
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = Math.floor(totalSeconds % 60);
+
+  const pad = (value: number) => value.toString().padStart(2, "0");
+
+  if (hours > 0) {
+    return `${hours}:${pad(minutes)}:${pad(seconds)}`;
+  }
+
+  return `${minutes}:${pad(seconds)}`;
+};
+
 const getYoutubeThumbnailUrl = (url: string): string | null => {
   try {
     const parsed = new URL(url);
 
-    // Standard YouTube URL: https://www.youtube.com/watch?v=VIDEO_ID
     const vParam = parsed.searchParams.get("v");
     if (vParam) {
       return `https://img.youtube.com/vi/${vParam}/hqdefault.jpg`;
     }
 
-    // Short URL: https://youtu.be/VIDEO_ID
     if (parsed.hostname === "youtu.be") {
       const id = parsed.pathname.replace("/", "");
       if (id) {
@@ -36,26 +52,31 @@ export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
   const thumbnailUrl = getYoutubeThumbnailUrl(reference.url);
 
   return (
-    <tr>
-      <td>
-        {thumbnailUrl && (
-          <a href={reference.url} target="_blank" rel="noreferrer">
-            <img
-              src={thumbnailUrl}
-              alt={`Thumbnail for ${reference.url}`}
-              className="reference-thumbnail__image"
-            />
-          </a>
-        )}
-      </td>
-      <td>
+    <article className="reference-thumbnail">
+      {thumbnailUrl && (
         <a href={reference.url} target="_blank" rel="noreferrer">
+          <img
+            src={thumbnailUrl}
+            alt={`Thumbnail for ${reference.url}`}
+            className="reference-thumbnail__image"
+          />
+        </a>
+      )}
+      <div className="reference-thumbnail__body">
+        <div className="reference-thumbnail__meta">
+          <span className="reference-thumbnail__author">{reference.author}</span>
+          <span className="reference-thumbnail__timecode">
+            {formatTimecode(reference.timecode)}
+          </span>
+        </div>
+        <a
+          href={reference.url}
+          target="_blank"
+          rel="noreferrer"
+          className="reference-thumbnail__url"
+        >
           {reference.url}
         </a>
-        <div className="reference-thumbnail__timecode">{reference.timecode}</div>
-      </td>
-      <td>{reference.author}</td>
-      <td>
         <div className="reference-thumbnail__tags">
           {reference.tags.map((tag) => (
             <span key={tag} className="reference-thumbnail__tag">
@@ -63,8 +84,8 @@ export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
             </span>
           ))}
         </div>
-      </td>
-    </tr>
+      </div>
+    </article>
   );
 };
 
