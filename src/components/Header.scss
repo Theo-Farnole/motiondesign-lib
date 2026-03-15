@@ -5,13 +5,14 @@
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 1.5rem;
-  background: #fff;
-  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(180deg, rgba(28, 28, 36, 0.95) 0%, rgba(28, 28, 36, 0.8) 100%);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
   position: sticky;
   top: 0;
   z-index: 100;
   flex-shrink: 0;
   box-sizing: border-box;
+  backdrop-filter: blur(12px);
 }
 
 .global-header__home {
@@ -21,12 +22,13 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  color: #111827;
+  color: #94a3b8;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .global-header__home:hover {
-  color: #374151;
+  color: #e2e8f0;
 }
 
 .global-header__search {

@@ -3,9 +3,16 @@
   flex-direction: column;
   gap: 0.5rem;
   padding: 0.75rem;
-  border-radius: 0.75rem;
-  border: 1px solid #e5e7eb;
-  background-color: #ffffff;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  background: linear-gradient(145deg, rgba(45, 55, 72, 0.5) 0%, rgba(30, 38, 55, 0.6) 100%);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reference-thumbnail:hover {
+  border-color: rgba(167, 139, 250, 0.3);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.15);
 }
 
 .reference-thumbnail__thumb-button {
@@ -39,11 +46,16 @@
   display: flex;
   justify-content: space-between;
   font-size: 0.8rem;
-  color: #6b7280;
+  color: #94a3b8;
 }
 
 .reference-thumbnail__author {
   font-weight: 500;
+  color: #cbd5e1;
+}
+
+.reference-thumbnail__url {
+  color: #64748b;
 }
 
 .reference-thumbnail__tags {
@@ -55,7 +67,5 @@
 .reference-thumbnail__tag {
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  background-color: #f3f4f6;
-  border: 1px solid #e5e7eb;
   font-size: 0.8rem;
 }
