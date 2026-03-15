@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ReferenceThumbnail } from "./components/ReferenceThumbnail";
 import { references } from "./data/references";
 
@@ -161,11 +161,13 @@ export const App: React.FC = () => {
 
         <section className="references-grid">
           {references.map((reference, index) => (
-            <ReferenceThumbnail
+            <Link
               key={`${reference.url}-${reference.timecode}`}
-              reference={reference}
-              href={`/ref/${index}`}
-            />
+              to={`/ref/${index}`}
+              className="references-grid__link"
+            >
+              <ReferenceThumbnail reference={reference} />
+            </Link>
           ))}
         </section>
       </main>

@@ -39,11 +39,13 @@ export const SearchPage: React.FC = () => {
             {filtered.map((reference) => {
               const index = references.indexOf(reference);
               return (
-                <ReferenceThumbnail
+                <Link
                   key={`${reference.url}-${reference.timecode}`}
-                  reference={reference}
-                  href={`/ref/${index}`}
-                />
+                  to={`/ref/${index}`}
+                  className="references-grid__link"
+                >
+                  <ReferenceThumbnail reference={reference} />
+                </Link>
               );
             })}
           </section>

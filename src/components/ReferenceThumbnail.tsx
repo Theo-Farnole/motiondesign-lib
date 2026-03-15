@@ -1,11 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { MDReference } from "../data/references";
 import "./ReferenceThumbnail.scss";
 
 type ReferenceThumbnailProps = {
   reference: MDReference;
-  href?: string;
 };
 
 const formatTimecode = (totalSeconds: number): string => {
@@ -50,20 +48,19 @@ const getYoutubeThumbnailUrl = (url: string): string | null => {
 
 export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
   reference,
-  href,
 }) => {
   const thumbnailUrl = getYoutubeThumbnailUrl(reference.url);
 
   return (
     <article className="reference-thumbnail">
       {thumbnailUrl && (
-        <Link to={href ?? "#"} className="reference-thumbnail__thumb-button">
+        <div className="reference-thumbnail__thumb-button">
           <img
             src={thumbnailUrl}
             alt={`Thumbnail for ${reference.url}`}
             className="reference-thumbnail__image"
           />
-        </Link>
+        </div>
       )}
       <div className="reference-thumbnail__body">
         <div className="reference-thumbnail__meta">
@@ -72,14 +69,9 @@ export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
             {formatTimecode(reference.timecode)}
           </span>
         </div>
-        <a
-          href={reference.url}
-          target="_blank"
-          rel="noreferrer"
-          className="reference-thumbnail__url"
-        >
+        <span className="reference-thumbnail__url">
           {reference.url}
-        </a>
+        </span>
         <div className="reference-thumbnail__tags">
           {reference.tags.map((tag) => (
             <span key={tag} className="reference-thumbnail__tag">

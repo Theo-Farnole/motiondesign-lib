@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { MDReference, references } from "../data/references";
+import { Link } from "react-router-dom";
 import { ReferenceThumbnail } from "../components/ReferenceThumbnail";
 import "./PlayerPage.scss";
 
@@ -111,14 +112,16 @@ export const PlayerPage: React.FC = () => {
           <footer className="player-layout__suggestions">
             <div className="player-layout__suggestions-title">Suggestions</div>
             <div className="references-grid">
-              {suggestions.map((ref, idx) => {
+              {suggestions.map((ref) => {
                 const suggestionIndex = references.indexOf(ref);
                 return (
-                  <ReferenceThumbnail
+                  <Link
                     key={`${ref.url}-${ref.timecode}`}
-                    reference={ref}
-                    href={`/ref/${suggestionIndex}`}
-                  />
+                    to={`/ref/${suggestionIndex}`}
+                    className="references-grid__link"
+                  >
+                    <ReferenceThumbnail reference={ref} />
+                  </Link>
                 );
               })}
             </div>
