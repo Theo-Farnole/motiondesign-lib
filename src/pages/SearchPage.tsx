@@ -22,6 +22,11 @@ export const SearchPage: React.FC = () => {
     <>
       <h2 className="search-page__heading">
           {decodedTerm ? `Résultats pour « ${decodedTerm} »` : "Recherche"}
+          {decodedTerm && (
+            <span className="search-page__count">
+              {" "}({filtered.length} référence{filtered.length !== 1 ? "s" : ""})
+            </span>
+          )}
         </h2>
         {filtered.length === 0 ? (
           <p className="search-page__empty">Aucun résultat.</p>

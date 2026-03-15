@@ -7,12 +7,15 @@ export const App: React.FC = () => {
   return (
     <>
       <header className="home-hero">
-        <h1 className="home-hero__title">
-          <span className="home-hero__title--large">Motion Design</span>
-          <span className="home-hero__title--small">Références</span>
-        </h1>
+        <div className="home-hero__count" aria-label={`${references.length} références`}>
+          <span className="home-hero__count-number">{references.length}</span>
+          <span className="home-hero__count-label">
+            référence{references.length > 1 ? "s" : ""}
+          </span>
+        </div>
+
         <p className="home-hero__description">
-          Une sélection de références vidéo pour le motion design, classées par auteur et par thème.
+          pour le motion design, classées par auteur et par thème 👌
         </p>
       </header>
 
