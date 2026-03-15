@@ -1,16 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ReferenceThumbnail } from "./components/ReferenceThumbnail";
+import { useCountUp } from "./hooks/useCountUp";
 import { references } from "./data/references";
 
 export const App: React.FC = () => {
+  const total = references.length;
+  const count = useCountUp(total, 1200);
+
   return (
     <>
       <header className="home-hero">
-        <div className="home-hero__count" aria-label={`${references.length} références`}>
-          <span className="home-hero__count-number">{references.length}</span>
+        <div className="home-hero__count" aria-label={`${total} références`}>
+          <span className="home-hero__count-number">{count}</span>
           <span className="home-hero__count-label">
-            référence{references.length > 1 ? "s" : ""}
+            référence{count !== 1 ? "s" : ""}
           </span>
         </div>
 
