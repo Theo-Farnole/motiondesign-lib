@@ -1,0 +1,26 @@
+.reference-thumbnail__image {
+  width: 140px;
+  border-radius: 0.5rem;
+  display: block;
+}
+
+.reference-thumbnail__timecode {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.reference-thumbnail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.reference-thumbnail__tag {
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  font-size: 0.8rem;
+}
+
