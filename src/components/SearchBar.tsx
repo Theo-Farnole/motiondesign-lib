@@ -106,6 +106,7 @@ export const SearchBar: React.FC = () => {
         </span>
         <input
           className="search-bar__input"
+          autoComplete="off"
           type="text"
           placeholder="Search by channel or tag..."
           value={query}
