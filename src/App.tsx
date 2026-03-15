@@ -6,7 +6,7 @@ export const App: React.FC = () => {
   const [query, setQuery] = React.useState("");
 
   const normalizedQuery = query.toLowerCase().trim();
-  const filtered = references.filter((ref) => {
+  const filtered = references.filter((ref, index) => {
     if (!normalizedQuery) return true;
 
     const inAuthor = ref.author.toLowerCase().includes(normalizedQuery);
@@ -14,8 +14,9 @@ export const App: React.FC = () => {
     const inTags = ref.tags.some((tag) =>
       tag.toLowerCase().includes(normalizedQuery),
     );
+    const inIndex = index.toString() === normalizedQuery;
 
-    return inAuthor || inUrl || inTags;
+    return inAuthor || inUrl || inTags || inIndex;
   });
 
   return (
@@ -35,10 +36,11 @@ export const App: React.FC = () => {
         </div>
 
         <section className="references-grid">
-          {filtered.map((reference) => (
+          {filtered.map((reference, index) => (
             <ReferenceThumbnail
               key={`${reference.url}-${reference.timecode}`}
               reference={reference}
+              href={`/ref/${index}`}
             />
           ))}
         </section>

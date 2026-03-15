@@ -8,6 +8,14 @@
   background-color: #ffffff;
 }
 
+.reference-thumbnail__thumb-button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
 .reference-thumbnail__image {
   width: 100%;
   border-radius: 0.5rem;

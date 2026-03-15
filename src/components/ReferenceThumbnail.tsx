@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { MDReference } from "../data/references";
 import "./ReferenceThumbnail.scss";
 
 type ReferenceThumbnailProps = {
   reference: MDReference;
+  href?: string;
 };
 
 const formatTimecode = (totalSeconds: number): string => {
@@ -48,19 +50,20 @@ const getYoutubeThumbnailUrl = (url: string): string | null => {
 
 export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
   reference,
+  href,
 }) => {
   const thumbnailUrl = getYoutubeThumbnailUrl(reference.url);
 
   return (
     <article className="reference-thumbnail">
       {thumbnailUrl && (
-        <a href={reference.url} target="_blank" rel="noreferrer">
+        <Link to={href ?? "#"} className="reference-thumbnail__thumb-button">
           <img
             src={thumbnailUrl}
             alt={`Thumbnail for ${reference.url}`}
             className="reference-thumbnail__image"
           />
-        </a>
+        </Link>
       )}
       <div className="reference-thumbnail__body">
         <div className="reference-thumbnail__meta">
