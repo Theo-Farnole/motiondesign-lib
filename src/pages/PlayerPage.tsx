@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { MDReference, references } from "../data/references";
 import { Link } from "react-router-dom";
 import { ReferenceThumbnail } from "../components/ReferenceThumbnail";
+import { getTagColor } from "../utils/tagColor";
 import "./PlayerPage.scss";
 
 const getYoutubeVideoId = (url: string): string | null => {
@@ -86,11 +87,18 @@ export const PlayerPage: React.FC = () => {
           {reference.author} — {formatTimecode(reference.timecode)}
         </span>
         <div className="player-layout__tags">
-          {reference.tags.map((tag) => (
-            <span key={tag} className="player-layout__tag">
-              {tag}
-            </span>
-          ))}
+          {reference.tags.map((tag) => {
+            const { bg, text, border } = getTagColor(tag);
+            return (
+              <span
+                key={tag}
+                className="player-layout__tag"
+                style={{ backgroundColor: bg, color: text, borderColor: border }}
+              >
+                {tag}
+              </span>
+            );
+          })}
         </div>
       </div>
 
