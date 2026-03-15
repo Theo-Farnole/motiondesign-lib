@@ -19,17 +19,8 @@ export const SearchPage: React.FC = () => {
   }, [decodedTerm]);
 
   return (
-    <div className="app">
-      <header className="app__header">
-        <h1 className="app__title">Motion Design Reference</h1>
-      </header>
-      <main className="app__content">
-        <div className="search-page__back">
-          <Link to="/" className="search-page__back-link">
-            ← Back to home
-          </Link>
-        </div>
-        <h2 className="search-page__heading">
+    <>
+      <h2 className="search-page__heading">
           {decodedTerm ? `Results for “${decodedTerm}”` : "Search"}
         </h2>
         {filtered.length === 0 ? (
@@ -50,7 +41,6 @@ export const SearchPage: React.FC = () => {
             })}
           </section>
         )}
-      </main>
-    </div>
+    </>
   );
 };

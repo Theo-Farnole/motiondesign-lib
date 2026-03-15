@@ -69,66 +69,49 @@ export const PlayerPage: React.FC = () => {
     .slice(0, 4);
 
   return (
-    <div className="app">
-      <header className="app__header">
-        <h1 className="app__title">Motion Design Reference</h1>
-      </header>
-      <main className="app__content">
-        <div className="player-layout__back">
-          <button
-            type="button"
-            className="player-layout__back-button"
-            onClick={() => navigate("/")}
-          >
-            ← Back to gallery
-          </button>
-        </div>
+    <section className="player-layout">
+      <div className="player-layout__video">
+        {embedUrl && (
+          <iframe
+            src={embedUrl}
+            title="Motion design reference"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        )}
+      </div>
 
-        <section className="player-layout">
-          <div className="player-layout__video">
-            {embedUrl && (
-              <iframe
-                src={embedUrl}
-                title="Motion design reference"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            )}
-          </div>
-
-          <div className="player-layout__meta">
-            <span className="player-layout__author">
-              {reference.author} — {formatTimecode(reference.timecode)}
+      <div className="player-layout__meta">
+        <span className="player-layout__author">
+          {reference.author} — {formatTimecode(reference.timecode)}
+        </span>
+        <div className="player-layout__tags">
+          {reference.tags.map((tag) => (
+            <span key={tag} className="player-layout__tag">
+              {tag}
             </span>
-            <div className="player-layout__tags">
-              {reference.tags.map((tag) => (
-                <span key={tag} className="player-layout__tag">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
+          ))}
+        </div>
+      </div>
 
-          <footer className="player-layout__suggestions">
-            <div className="player-layout__suggestions-title">Suggestions</div>
-            <div className="references-grid">
-              {suggestions.map((ref) => {
-                const suggestionIndex = references.indexOf(ref);
-                return (
-                  <Link
-                    key={`${ref.url}-${ref.timecode}`}
-                    to={`/ref/${suggestionIndex}`}
-                    className="references-grid__link"
-                  >
-                    <ReferenceThumbnail reference={ref} />
-                  </Link>
-                );
-              })}
-            </div>
-          </footer>
-        </section>
-      </main>
-    </div>
+      <footer className="player-layout__suggestions">
+        <div className="player-layout__suggestions-title">Suggestions</div>
+        <div className="references-grid">
+          {suggestions.map((ref) => {
+            const suggestionIndex = references.indexOf(ref);
+            return (
+              <Link
+                key={`${ref.url}-${ref.timecode}`}
+                to={`/ref/${suggestionIndex}`}
+                className="references-grid__link"
+              >
+                <ReferenceThumbnail reference={ref} />
+              </Link>
+            );
+          })}
+        </div>
+      </footer>
+    </section>
   );
 };
 
