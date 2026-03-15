@@ -1,0 +1,25 @@
+.app-footer {
+  width: 100vw;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-top: auto;
+  padding: 1.5rem 1.5rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.app-footer__line {
+  margin: 0.35rem 0;
+}
+
+.app-footer a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
+}
