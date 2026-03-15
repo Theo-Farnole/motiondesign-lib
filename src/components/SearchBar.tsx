@@ -39,11 +39,17 @@ export const SearchBar: React.FC = () => {
 
   const showSuggestions = focused && suggestions.length > 0;
 
-  const selectSuggestion = React.useCallback((suggestion: string) => {
-    setQuery(suggestion);
-    setFocused(false);
-    setHighlightedIndex(-1);
-  }, []);
+  const selectSuggestion = React.useCallback(
+    (suggestion: string, startSearch: boolean = false) => {
+      setQuery(suggestion);
+      setFocused(false);
+      setHighlightedIndex(-1);
+      if (startSearch && suggestion.trim()) {
+        navigate(`/search/${encodeURIComponent(suggestion.trim())}`);
+      }
+    },
+    [navigate]
+  );
 
   const submitSearch = React.useCallback(() => {
     const term = query.trim();
@@ -59,7 +65,7 @@ export const SearchBar: React.FC = () => {
       if (e.key === "Enter") {
         e.preventDefault();
         if (showSuggestions && highlightedIndex >= 0 && suggestions[highlightedIndex]) {
-          selectSuggestion(suggestions[highlightedIndex]);
+          selectSuggestion(suggestions[highlightedIndex], true);
         } else {
           submitSearch();
         }
@@ -144,7 +150,7 @@ export const SearchBar: React.FC = () => {
               onMouseEnter={() => setHighlightedIndex(i)}
               onMouseDown={(e) => {
                 e.preventDefault();
-                selectSuggestion(suggestion);
+                selectSuggestion(suggestion, true);
               }}
             >
               {suggestion}
