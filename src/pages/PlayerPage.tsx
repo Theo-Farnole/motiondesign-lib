@@ -6,21 +6,6 @@ import { ReferenceThumbnail } from "../components/ReferenceThumbnail";
 import { getTagColor } from "../utils/tagColor";
 import "./PlayerPage.scss";
 
-const getYoutubeVideoId = (url: string): string | null => {
-  try {
-    const parsed = new URL(url);
-    const vParam = parsed.searchParams.get("v");
-    if (vParam) return vParam;
-    if (parsed.hostname === "youtu.be") {
-      const id = parsed.pathname.replace("/", "");
-      return id || null;
-    }
-    return null;
-  } catch {
-    return null;
-  }
-};
-
 const formatTimecode = (totalSeconds: number): string => {
   if (!Number.isFinite(totalSeconds) || totalSeconds < 0) {
     return "";
@@ -59,7 +44,7 @@ export const PlayerPage: React.FC = () => {
     return null;
   }
 
-  const videoId = getYoutubeVideoId(reference.url);
+  const videoId = reference.videoId;
   const startSeconds = Math.max(0, Math.floor(reference.timecode));
   const embedUrl = videoId
     ? `https://www.youtube.com/embed/${videoId}?start=${startSeconds}`
@@ -109,7 +94,7 @@ export const PlayerPage: React.FC = () => {
             const suggestionIndex = references.indexOf(ref);
             return (
               <Link
-                key={`${ref.url}-${ref.timecode}`}
+                key={`${ref.videoId}-${ref.timecode}`}
                 to={`/ref/${suggestionIndex}`}
                 className="references-grid__link"
               >

@@ -7,32 +7,13 @@ type ReferenceThumbnailProps = {
   reference: MDReference;
 };
 
-const getYoutubeThumbnailUrl = (url: string): string | null => {
-  try {
-    const parsed = new URL(url);
-
-    const vParam = parsed.searchParams.get("v");
-    if (vParam) {
-      return `https://img.youtube.com/vi/${vParam}/maxresdefault.jpg`;
-    }
-
-    if (parsed.hostname === "youtu.be") {
-      const id = parsed.pathname.replace("/", "");
-      if (id) {
-        return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
-      }
-    }
-
-    return null;
-  } catch {
-    return null;
-  }
-};
+const getYoutubeThumbnailUrl = (videoId: string): string =>
+  `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
 export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
   reference,
 }) => {
-  const thumbnailUrl = getYoutubeThumbnailUrl(reference.url);
+  const thumbnailUrl = getYoutubeThumbnailUrl(reference.videoId);
 
   return (
     <article className="reference-thumbnail">
@@ -40,7 +21,7 @@ export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
         <div className="reference-thumbnail__thumb-button">
           <img
             src={thumbnailUrl}
-            alt={`Miniature pour ${reference.url}`}
+            alt={`Miniature pour ${reference.videoId}`}
             className="reference-thumbnail__image"
           />
         </div>

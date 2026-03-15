@@ -30,7 +30,7 @@ export const App: React.FC = () => {
             const index = references.indexOf(reference);
             return (
               <Link
-                key={`${reference.url}-${reference.timecode}`}
+                key={`${reference.videoId}-${reference.timecode}`}
                 to={`/ref/${index}`}
                 className="references-grid__link"
               >
