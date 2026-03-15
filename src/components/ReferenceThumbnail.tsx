@@ -40,7 +40,7 @@ export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
         <div className="reference-thumbnail__thumb-button">
           <img
             src={thumbnailUrl}
-            alt={`Thumbnail for ${reference.url}`}
+            alt={`Miniature pour ${reference.url}`}
             className="reference-thumbnail__image"
           />
         </div>

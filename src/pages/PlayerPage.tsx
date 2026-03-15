@@ -75,7 +75,7 @@ export const PlayerPage: React.FC = () => {
         {embedUrl && (
           <iframe
             src={embedUrl}
-            title="Motion design reference"
+            title="Référence motion design"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
           />

@@ -21,10 +21,10 @@ export const SearchPage: React.FC = () => {
   return (
     <>
       <h2 className="search-page__heading">
-          {decodedTerm ? `Results for “${decodedTerm}”` : "Search"}
+          {decodedTerm ? `Résultats pour « ${decodedTerm} »` : "Recherche"}
         </h2>
         {filtered.length === 0 ? (
-          <p className="search-page__empty">No results found.</p>
+          <p className="search-page__empty">Aucun résultat.</p>
         ) : (
           <section className="references-grid">
             {filtered.map((reference) => {

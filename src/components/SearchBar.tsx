@@ -108,7 +108,7 @@ export const SearchBar: React.FC = () => {
           className="search-bar__input"
           autoComplete="off"
           type="text"
-          placeholder="Search by channel or tag..."
+          placeholder="Rechercher par chaîne ou tag…"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setFocused(true)}
@@ -123,9 +123,9 @@ export const SearchBar: React.FC = () => {
           type="button"
           className="search-bar__submit"
           onClick={submitSearch}
-          aria-label="Search"
+          aria-label="Rechercher"
         >
-          Search
+          Rechercher
         </button>
       </div>
       {showSuggestions && (
