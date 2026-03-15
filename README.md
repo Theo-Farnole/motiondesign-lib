@@ -2,7 +2,7 @@
 
 **Motiq** est une bibliothèque de références motion design : des extraits vidéo YouTube avec timecode, classés par auteur et par thème, pour s’inspirer ou retrouver une idée rapidement.
 
-🔗 **Site : [motiq.fr](https://motiq.fr)**
+🔗 **Site : [motiq.onrender.com](https://motiq.onrender.com/)**
 
 ---
 
@@ -71,4 +71,4 @@ Puis ouvrir [http://localhost:5173](http://localhost:5173).
 
 ## Lien
 
-**Motiq : [motiq.fr](https://motiq.fr)**
+**Motiq : [motiq.onrender.com](https://motiq.onrender.com/)**
