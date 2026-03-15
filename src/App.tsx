@@ -1,10 +1,8 @@
 import React from "react";
-import { LinkItem } from "./components/LinkItem";
-import { useSqlLinks } from "./database";
+import { ReferenceThumbnail } from "./components/ReferenceThumbnail";
+import { references } from "./data/references";
 
 export const App: React.FC = () => {
-  const links = useSqlLinks();
-
   return (
     <div className="app">
       <header className="app__header">
@@ -39,8 +37,8 @@ export const App: React.FC = () => {
                 </tr>
               </thead>
               <tbody>
-                {links.map((link, index) => (
-                  <LinkItem key={index} link={link} />
+                {references.map((reference, index) => (
+                  <ReferenceThumbnail key={index} reference={reference} />
                 ))}
               </tbody>
             </table>
