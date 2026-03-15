@@ -24,15 +24,20 @@ export const App: React.FC = () => {
       </header>
 
       <section className="references-grid">
-        {references.map((reference, index) => (
-          <Link
-            key={`${reference.url}-${reference.timecode}`}
-            to={`/ref/${index}`}
-            className="references-grid__link"
-          >
-            <ReferenceThumbnail reference={reference} />
-          </Link>
-        ))}
+        {[...references]
+          .reverse()
+          .map((reference) => {
+            const index = references.indexOf(reference);
+            return (
+              <Link
+                key={`${reference.url}-${reference.timecode}`}
+                to={`/ref/${index}`}
+                className="references-grid__link"
+              >
+                <ReferenceThumbnail reference={reference} />
+              </Link>
+            );
+          })}
       </section>
     </>
   );
