@@ -9,25 +9,25 @@ export const references: MDReference[] = [
     {
         url: "https://www.youtube.com/watch?v=DRc7ISfv6GA",
         timecode: 10 * 60 + 55,
-        author: "joyca",
+        author: "Joyca",
         tags: ["text"],
     },
     {
         url: "https://www.youtube.com/watch?v=DRc7ISfv6GA",
         timecode: 11 * 60,
-        author: "joyca",
+        author: "Joyca",
         tags: ["jingle"],
     },
     {
         url: "https://www.youtube.com/watch?v=cTsONdoPgiU",
         timecode: 7 * 60 + 10,
-        author: "amixem",
+        author: "Amixem",
         tags: ["transition"],
     },
     {
         url: "https://www.youtube.com/watch?v=JJcKDAMb27k",
         timecode: 17 * 60 + 55,
-        author: "amixem",
+        author: "Amixem",
         tags: ["carte"],
     },
 ]

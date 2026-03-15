@@ -69,9 +69,6 @@ export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
             {formatTimecode(reference.timecode)}
           </span>
         </div>
-        <span className="reference-thumbnail__url">
-          {reference.url}
-        </span>
         <div className="reference-thumbnail__tags">
           {reference.tags.map((tag) => (
             <span key={tag} className="reference-thumbnail__tag">
