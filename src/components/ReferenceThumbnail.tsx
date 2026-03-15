@@ -13,13 +13,13 @@ const getYoutubeThumbnailUrl = (url: string): string | null => {
 
     const vParam = parsed.searchParams.get("v");
     if (vParam) {
-      return `https://img.youtube.com/vi/${vParam}/hqdefault.jpg`;
+      return `https://img.youtube.com/vi/${vParam}/maxresdefault.jpg`;
     }
 
     if (parsed.hostname === "youtu.be") {
       const id = parsed.pathname.replace("/", "");
       if (id) {
-        return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+        return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
       }
     }
 
