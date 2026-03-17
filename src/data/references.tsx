@@ -48,12 +48,23 @@ export const references: MDReference[] = [
         timecode: 2 * 60 + 19,
         author: "Inoxtag",
         tags: ["title"]
-    }
-    ,
+    },
     {
         videoId: "CVMeLYKPVfE",
         timecode: 2 * 60 + 52,
         author: "Inoxtag",
         tags: ["carte"]
+    },
+    {
+        videoId: "CVMeLYKPVfE",
+        timecode: 3 * 60 + 12,
+        author: "Inoxtag",
+        tags: ["carte"]
+    },
+    {
+        videoId: "CVMeLYKPVfE",
+        timecode: 4 * 60 + 17,
+        author: "Inoxtag",
+        tags: ["titre"]
     }
 ]
