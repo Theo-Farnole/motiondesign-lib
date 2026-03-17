@@ -2,7 +2,7 @@ import type { MDReference } from "../data/references";
 import { getReferenceScreenshotTimecode } from "./referenceScreenshot";
 
 export function getReferencePreviewTimecode(
-  reference: Pick<MDReference, "timecode" | "screenshotTimecode">
+  reference: Pick<MDReference, "timecode" | "previewImageOffset">
 ) {
   // For now we align preview with the visual timecode used for screenshots.
   return getReferenceScreenshotTimecode(reference);
@@ -17,7 +17,7 @@ export function getReferencePreviewDurationSeconds(
 }
 
 export function getReferencePreviewFilename(
-  reference: Pick<MDReference, "videoId" | "timecode" | "screenshotTimecode" | "previewDuration">,
+  reference: Pick<MDReference, "videoId" | "timecode" | "previewImageOffset" | "previewDuration">,
   defaultSeconds = 2.4
 ) {
   const t = getReferencePreviewTimecode(reference);
@@ -26,7 +26,7 @@ export function getReferencePreviewFilename(
 }
 
 export function getReferencePreviewPublicPath(
-  reference: Pick<MDReference, "videoId" | "timecode" | "screenshotTimecode" | "previewDuration">,
+  reference: Pick<MDReference, "videoId" | "timecode" | "previewImageOffset" | "previewDuration">,
   defaultSeconds = 2.4
 ) {
   return `/previews/${getReferencePreviewFilename(reference, defaultSeconds)}`;

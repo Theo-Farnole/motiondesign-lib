@@ -4,7 +4,7 @@ export type MDReference = {
     tags: string[];
     timecode: number;
     description?: string;
-    thumbnailTimecode?: number;
+    previewImageOffset?: number;
     previewDuration?: number;
 }
 
@@ -12,7 +12,7 @@ export const references: MDReference[] = [
     {
         videoId: "DRc7ISfv6GA",
         timecode: 10 * 60 + 55,
-        thumbnailTimecode: 10 * 60 + 56,
+        previewImageOffset: 1,
         author: "Joyca",
         tags: ["text"],
     },
@@ -37,28 +37,28 @@ export const references: MDReference[] = [
     {
         videoId: "wrFsapf0Enk",
         timecode: 50 * 60 + 36,
-        thumbnailTimecode: 50 * 60 + 38,
+        previewImageOffset: 2,
         author: "Inoxtag",
         tags: ["text"]
     },
     {
         videoId: "ZRJo0yJWdfY",
         timecode: 27 * 60 + 33,
-        thumbnailTimecode: 27 * 60 + 35,
+        previewImageOffset: 2,
         author: "Inoxtag",
         tags: ["carte"]
     },
     {
         videoId: "CVMeLYKPVfE",
         timecode: 2 * 60 + 19,
-        thumbnailTimecode: 2 * 60 + 20,
+        previewImageOffset: 1,
         author: "Inoxtag",
         tags: ["title"]
     },
     {
         videoId: "CVMeLYKPVfE",
         timecode: 2 * 60 + 52,
-        thumbnailTimecode: 2 * 60 + 54,
+        previewImageOffset: 2,
         author: "Inoxtag",
         tags: ["carte"]
     },
