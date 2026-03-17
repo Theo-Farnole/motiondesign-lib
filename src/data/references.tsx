@@ -3,6 +3,7 @@ export type MDReference = {
     author: string;
     tags: string[];
     timecode: number;
+    description?: string;
 }
 
 export const references: MDReference[] = [
@@ -30,4 +31,29 @@ export const references: MDReference[] = [
         author: "Amixem",
         tags: ["carte"],
     },
+    {
+        videoId: "wrFsapf0Enk",
+        timecode: 50 * 60 + 36,
+        author: "Inoxtag",
+        tags: ["text"]
+    },
+    {
+        videoId: "ZRJo0yJWdfY",
+        timecode: 27 * 60 + 33,
+        author: "Inoxtag",
+        tags: ["carte"]
+    },
+    {
+        videoId: "CVMeLYKPVfE",
+        timecode: 2 * 60 + 19,
+        author: "Inoxtag",
+        tags: ["title"]
+    }
+    ,
+    {
+        videoId: "CVMeLYKPVfE",
+        timecode: 2 * 60 + 52,
+        author: "Inoxtag",
+        tags: ["carte"]
+    }
 ]
