@@ -15,7 +15,7 @@ import {
 import {
   getReferencePreviewDurationSeconds,
   getReferencePreviewFilename,
-  getReferencePreviewTimecode
+  getReferencePreviewVideoStartTimecode
 } from "../src/utils/referencePreview";
 
 type CliArgs = {
@@ -104,7 +104,7 @@ async function main() {
   const previewJobs = Array.from(
     new Map(
       slice.map((r) => {
-        const t = getReferencePreviewTimecode(r);
+        const t = getReferencePreviewVideoStartTimecode(r);
         const d = getReferencePreviewDurationSeconds(r, 2.4);
         const dMs = Math.round(d * 1000);
         return [`${r.videoId}-${t}-${dMs}`, r] as const;
@@ -168,10 +168,10 @@ async function main() {
     }
 
     const inputUrl = await getUrlCached(ref.videoId);
-    const t = getReferencePreviewTimecode(ref);
+    const t = getReferencePreviewVideoStartTimecode(ref);
     const durationSeconds = getReferencePreviewDurationSeconds(ref, 2.4);
-    const startSeconds = Math.max(0, t - 0.2);
-    console.log(`clip preview ${filename} @ ${t}s (+${durationSeconds}s)`);
+    const startSeconds = t;
+    console.log(`clip preview ${filename} @ ${startSeconds}s (+${durationSeconds}s)`);
 
     await runFfmpeg([
       "-hide_banner",

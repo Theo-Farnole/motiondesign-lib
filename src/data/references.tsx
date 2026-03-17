@@ -5,6 +5,7 @@ export type MDReference = {
     timecode: number;
     description?: string;
     previewImageOffset?: number;
+    previewVideoOffset?: number;
     previewDuration?: number;
 }
 
@@ -12,9 +13,9 @@ export const references: MDReference[] = [
     {
         videoId: "DRc7ISfv6GA",
         timecode: 10 * 60 + 55,
-        previewImageOffset: 1,
         author: "Joyca",
         tags: ["text"],
+        previewImageOffset: 1,
     },
     {
         videoId: "DRc7ISfv6GA",
@@ -33,46 +34,50 @@ export const references: MDReference[] = [
         timecode: 17 * 60 + 55,
         author: "Amixem",
         tags: ["carte"],
+        previewVideoOffset: 0.5,
     },
     {
         videoId: "wrFsapf0Enk",
         timecode: 50 * 60 + 36,
-        previewImageOffset: 2,
         author: "Inoxtag",
-        tags: ["text"]
+        tags: ["text"],
+        previewImageOffset: 2,
     },
     {
         videoId: "ZRJo0yJWdfY",
         timecode: 27 * 60 + 33,
-        previewImageOffset: 2,
         author: "Inoxtag",
-        tags: ["carte"]
+        tags: ["carte"],
+        previewImageOffset: 2,
     },
     {
         videoId: "CVMeLYKPVfE",
         timecode: 2 * 60 + 19,
-        previewImageOffset: 1,
         author: "Inoxtag",
-        tags: ["title"]
+        tags: ["title"],
+        previewImageOffset: 1,
     },
     {
         videoId: "CVMeLYKPVfE",
         timecode: 2 * 60 + 52,
-        previewImageOffset: 2,
         author: "Inoxtag",
-        tags: ["carte"]
+        tags: ["carte"],
+        previewImageOffset: 2,
+        previewVideoOffset: 1,
     },
     {
         videoId: "CVMeLYKPVfE",
         timecode: 3 * 60 + 13,
         author: "Inoxtag",
+        tags: ["carte"],
         previewDuration: 5,
-        tags: ["carte"]
+        previewVideoOffset: 1,
     },
     {
         videoId: "CVMeLYKPVfE",
         timecode: 4 * 60 + 17,
         author: "Inoxtag",
-        tags: ["titre"]
+        tags: ["titre"],
+        previewVideoOffset: .1
     }
 ]
