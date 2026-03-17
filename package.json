@@ -7,8 +7,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "generate:screenshots": "tsx scripts/generate-screenshots.ts",
-    "clean:screenshots": "tsx scripts/clean-screenshots.ts"
+    "generate": "tsx scripts/generate.ts",
+    "clean": "tsx scripts/clean.ts"
   },
   "dependencies": {
     "react": "^18.3.1",

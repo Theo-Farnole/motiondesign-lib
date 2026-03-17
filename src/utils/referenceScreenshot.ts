@@ -3,7 +3,7 @@ import type { MDReference } from "../data/references";
 export function getReferenceScreenshotTimecode(
   reference: Pick<MDReference, "timecode" | "screenshotTimecode">
 ) {
-  return reference.screenshotTimecode ?? reference.timecode;
+  return reference.thumbnailTimecode ?? reference.timecode;
 }
 
 export function getReferenceScreenshotFilename(
