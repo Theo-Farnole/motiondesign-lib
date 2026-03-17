@@ -66,6 +66,11 @@ Puis ouvrir [http://localhost:5173](http://localhost:5173).
 
 - **Build :** `npm run build`
 - **Preview :** `npm run preview`
+- **Générer les screenshots (miniatures réelles) :** `npm run generate:screenshots`
+  - **Limite** (ex. 10 refs) : `npm run generate:screenshots -- --limit=10`
+  - **Forcer la régénération** : `npm run generate:screenshots -- --force`
+- **Nettoyer les screenshots inutilisés :** `npm run clean:screenshots`
+  - **Supprimer réellement** : `npm run clean:screenshots -- --delete`
 
 ---
 
