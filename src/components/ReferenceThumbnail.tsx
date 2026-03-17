@@ -1,6 +1,7 @@
 import React from "react";
 import { MDReference } from "../data/references";
 import { getTagColor } from "../utils/tagColor";
+import { getReferenceScreenshotPublicPath } from "../utils/referenceScreenshot";
 import "./ReferenceThumbnail.scss";
 
 type ReferenceThumbnailProps = {
@@ -13,16 +14,22 @@ const getYoutubeThumbnailUrl = (videoId: string): string =>
 export const ReferenceThumbnail: React.FC<ReferenceThumbnailProps> = ({
   reference,
 }) => {
-  const thumbnailUrl = getYoutubeThumbnailUrl(reference.videoId);
+  const screenshotUrl = getReferenceScreenshotPublicPath(reference);
+  const fallbackUrl = getYoutubeThumbnailUrl(reference.videoId);
+  const [imgSrc, setImgSrc] = React.useState<string>(screenshotUrl);
 
   return (
     <article className="reference-thumbnail">
-      {thumbnailUrl && (
+      {imgSrc && (
         <div className="reference-thumbnail__thumb-button">
           <img
-            src={thumbnailUrl}
-            alt={`Miniature pour ${reference.videoId}`}
+            src={imgSrc}
+            alt={`Aperçu pour ${reference.author} à ${reference.timecode}s`}
             className="reference-thumbnail__image"
+            loading="lazy"
+            onError={() => {
+              if (imgSrc !== fallbackUrl) setImgSrc(fallbackUrl);
+            }}
           />
         </div>
       )}
