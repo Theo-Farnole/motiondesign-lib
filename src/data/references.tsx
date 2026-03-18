@@ -79,5 +79,29 @@ export const references: MDReference[] = [
         author: "Inoxtag",
         tags: ["titre"],
         previewVideoOffset: .1
+    },
+    {
+        videoId: "LFo1Qtn9MlM",
+        timecode: 3,
+        author: "Antoine BM",
+        tags: ["text", "icons"]
+    },
+    {
+        videoId: "LFo1Qtn9MlM",
+        timecode: 24,
+        author: "Antoine BM",
+        tags: ["text", "fullscreen"]
+    },
+    {
+        videoId: "LFo1Qtn9MlM",
+        timecode: 59,
+        author: "Antoine BM",
+        tags: ["video", "fullscreen"]
+    },
+    {
+        videoId: "LFo1Qtn9MlM",
+        timecode: 5 * 60 + 25,
+        author: "Antoine BM",
+        tags: ["screenshot"]
     }
 ]
