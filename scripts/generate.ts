@@ -51,12 +51,10 @@ function parseArgs(argv: string[]): CliArgs {
   return args;
 }
 
-function formatTimecode(seconds: number): string {
-  const s = Math.max(0, Math.floor(seconds));
-  const hh = String(Math.floor(s / 3600)).padStart(2, "0");
-  const mm = String(Math.floor((s % 3600) / 60)).padStart(2, "0");
-  const ss = String(s % 60).padStart(2, "0");
-  return `${hh}:${mm}:${ss}`;
+function formatFfmpegSeconds(seconds: number): string {
+  // Keep millisecond precision so offsets like 0.1 / 0.5 are respected.
+  const s = Math.max(0, seconds);
+  return s.toFixed(3).replace(/\.?0+$/, "");
 }
 
 async function getDirectVideoUrl(videoId: string): Promise<string> {
@@ -144,7 +142,7 @@ async function main() {
       "-loglevel",
       "error",
       "-ss",
-      formatTimecode(t),
+      formatFfmpegSeconds(t),
       "-i",
       inputUrl,
       "-frames:v",
@@ -178,7 +176,7 @@ async function main() {
       "-loglevel",
       "error",
       "-ss",
-      formatTimecode(startSeconds),
+      formatFfmpegSeconds(startSeconds),
       "-t",
       String(durationSeconds),
       "-i",
