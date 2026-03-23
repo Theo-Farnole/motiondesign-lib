@@ -103,5 +103,19 @@ export const references: MDReference[] = [
         timecode: 5 * 60 + 25,
         author: "Antoine BM",
         tags: ["screenshot"]
+    },
+    {
+        videoId: "8DlLSWhbTQ4",
+        timecode: 2 * 60 + 4.6,
+        author: "Amixem",
+        tags: ["jingle"],
+
+    },
+    {
+        videoId: "8DlLSWhbTQ4",
+        timecode: 2 * 60 + 16,
+        author: "Amixem",
+        tags: ["split screen"],
+
     }
 ]
