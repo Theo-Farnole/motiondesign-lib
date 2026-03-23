@@ -94,10 +94,9 @@ export const references: MDReference[] = [
     },
     {
         videoId: "LFo1Qtn9MlM",
-        timecode: 59,
+        timecode: 60,
         author: "Antoine BM",
-        tags: ["video", "fullscreen"],
-        previewImageOffset: 1,
+        tags: ["video", "fullscreen"]
     },
     {
         videoId: "LFo1Qtn9MlM",
