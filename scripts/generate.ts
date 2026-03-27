@@ -7,7 +7,7 @@ import ytdlp from "yt-dlp-exec";
 // @ts-ignore - ffmpeg-static has no types in some setups
 import ffmpegPath from "ffmpeg-static";
 
-import { references } from "../src/data/references";
+import { parseReferencesFromCsv } from "../src/data/referencesParser";
 import {
   getReferenceScreenshotFilename,
   getReferenceScreenshotTimecode
@@ -91,6 +91,10 @@ async function main() {
   const { limit, force, outDirScreenshots, outDirPreviews } = parseArgs(process.argv.slice(2));
   fs.mkdirSync(outDirScreenshots, { recursive: true });
   fs.mkdirSync(outDirPreviews, { recursive: true });
+
+  const csvPath = path.resolve(process.cwd(), "src", "data", "references.csv");
+  const csvRaw = fs.readFileSync(csvPath, "utf8");
+  const references = parseReferencesFromCsv(csvRaw);
 
   const slice = typeof limit === "number" ? references.slice(0, limit) : references;
 

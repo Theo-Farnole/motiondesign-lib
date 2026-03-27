@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import { references } from "../src/data/references";
+import { parseReferencesFromCsv } from "../src/data/referencesParser";
 import { getReferencePreviewFilename } from "../src/utils/referencePreview";
 
 type CliArgs = {
@@ -35,6 +35,9 @@ function main() {
     return;
   }
 
+  const csvPath = path.resolve(process.cwd(), "src", "data", "references.csv");
+  const csvRaw = fs.readFileSync(csvPath, "utf8");
+  const references = parseReferencesFromCsv(csvRaw);
   const expected = new Set(references.map((r) => getReferencePreviewFilename(r)));
   const files = fs.readdirSync(dir, { withFileTypes: true });
 
