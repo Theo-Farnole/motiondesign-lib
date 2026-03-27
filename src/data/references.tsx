@@ -54,7 +54,7 @@ export const references: MDReference[] = [
         videoId: "CVMeLYKPVfE",
         timecode: 2 * 60 + 19,
         author: "Inoxtag",
-        tags: ["titre"],
+        tags: ["text"],
         previewImageOffset: 1,
     },
     {
@@ -77,7 +77,7 @@ export const references: MDReference[] = [
         videoId: "CVMeLYKPVfE",
         timecode: 4 * 60 + 17,
         author: "Inoxtag",
-        tags: ["titre"],
+        tags: ["text"],
         previewVideoOffset: .1
     },
     {
