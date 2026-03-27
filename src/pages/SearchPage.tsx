@@ -31,7 +31,7 @@ export const SearchPage: React.FC = () => {
         {filtered.length === 0 ? (
           <p className="search-page__empty">Aucun résultat.</p>
         ) : (
-          <section className="references-grid">
+          <section className="references-grid search-page__grid">
             {filtered.map((reference) => {
               const index = references.indexOf(reference);
               return (
