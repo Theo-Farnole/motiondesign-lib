@@ -9,9 +9,19 @@ export const App: React.FC = () => {
   const total = references.length;
   const count = useCountUp(total, 1200);
   const allTags = React.useMemo(() => {
-    return Array.from(new Set(references.flatMap((ref) => ref.tags))).sort((a, b) =>
-      a.localeCompare(b)
-    );
+    const counts = new Map<string, number>();
+    for (const ref of references) {
+      for (const tag of ref.tags) {
+        counts.set(tag, (counts.get(tag) ?? 0) + 1);
+      }
+    }
+
+    return Array.from(counts.entries())
+      .sort((a, b) => {
+        if (b[1] !== a[1]) return b[1] - a[1];
+        return a[0].localeCompare(b[0]);
+      })
+      .map(([tag]) => tag);
   }, []);
 
   return (
