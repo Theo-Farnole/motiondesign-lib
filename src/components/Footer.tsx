@@ -7,8 +7,8 @@ export const Footer: React.FC = () => {
       <p className="app-footer__line app-footer__brand">Motiq</p>
       <p className="app-footer__line">
         Vibe codé par{" "}
-        <a href="https://gweron.fr" target="_blank" rel="noreferrer">
-          gweron
+        <a href="https://theofarnole.fr" target="_blank" rel="noreferrer">
+          Théo Farnole
         </a>
       </p>
       <p className="app-footer__line">
